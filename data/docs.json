@@ -1,0 +1,6 @@
+[
+    "LangGraph is used for orchestrating LLM-based applications as a graph.",
+    "LangChain provides abstraction layers for chaining LLMs, tools, and memory.",
+    "Chroma is an open-source vector store optimized for retrieval tasks."
+  ]
+  
