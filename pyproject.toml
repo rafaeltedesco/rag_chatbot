@@ -10,4 +10,5 @@ dependencies = [
     "langchain-community>=0.3.21",
     "sentence-transformers>=4.1.0",
     "langgraph>=0.3.31",
+    "sympy>=1.13.1",
 ]

@@ -1,5 +1,5 @@
 import json
-from retriever import add_documents, retrieve
+from retriever import add_documents
 from rag_graph import graph as chatbot, State
 
 with open("data/docs.json") as f:
