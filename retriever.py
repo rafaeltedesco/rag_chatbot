@@ -13,16 +13,20 @@ collection = client.get_or_create_collection(
 )
 
 def add_documents(docs):
+    print("Loading documents as embeddings...")
     for idx, doc in enumerate(docs):
         collection.add(documents=[doc], ids=[f"doc_{idx}"])
         
 
 def retrieve(question: str, k=3):
+    print("Retrieving documents for question...")
     results = collection.query(query_texts=[question], n_results=k)
+    documents = results["documents"][0]
+    print(f"{len(documents)} documents found...")
     return results["documents"][0]
 
 def retriever(state):
-    question = state["question"]
+    question = state.question
     docs = retrieve(question)
-    state["retrieved_docs"] = docs
+    state.retrieved_docs = docs
     return state

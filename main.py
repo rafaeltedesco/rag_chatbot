@@ -1,11 +1,22 @@
 import json
 from retriever import add_documents, retrieve
+from rag_graph import graph as chatbot, State
 
 with open("data/docs.json") as f:
     docs = json.load(f)
 
 add_documents(docs)
 
-documents = retrieve("what is chroma DB?")
+while True:
+    question = input("Enter you question here: ")
 
-print(documents, "docs")
+    if question == "bye":
+        print("See you later!")
+        break
+
+    initial_state = State(question=question)
+
+    result = chatbot.invoke(initial_state)
+
+    print("Answer:\n", result["answer"])
+    
